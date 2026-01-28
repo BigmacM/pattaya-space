@@ -20,11 +20,8 @@ const { businessInfo, socials } = businessData;
             {businessInfo.name}
           </span>
         </a>
-        <p class="text-silver-300 font-sans leading-relaxed mb-6">
+        <p class="text-silver-300 font-sans leading-relaxed">
           {businessInfo.tagline}
-        </p>
-        <p class="font-mono text-sm text-cyan">
-          Dark Tropical Industrial
         </p>
       </div>
 
@@ -143,14 +140,9 @@ const { businessInfo, socials } = businessData;
 
     <!-- Bottom Bar -->
     <div class="mt-16 pt-8 border-t border-white/5">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-silver-400 text-sm font-sans">
-          © {new Date().getFullYear()} {businessInfo.name}. All rights reserved.
-        </p>
-        <p class="font-mono text-xs text-silver-400">
-          // DARK TROPICAL INDUSTRIAL
-        </p>
-      </div>
+      <p class="text-silver-400 text-sm font-sans text-center md:text-left">
+        © {new Date().getFullYear()} {businessInfo.name}. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>

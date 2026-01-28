@@ -24,7 +24,7 @@
     "ctaLink": "#contact"
   },
   "about": {
-    "phase": "Rapid Launch",
+    "phase": "Now Open",
     "title": "The Vibe",
     "subtitle": "Where Industrial Elegance Meets Tropical Productivity",
     "description": "We've transformed a legendary fine dining restaurant into Pattaya's most inspiring workspace. The high ceilings remain. The warm lighting stays. The unique layout persists. But now, it's optimized for deep work, collaboration, and building something extraordinary.",
@@ -38,14 +38,14 @@
         "description": "This isn't just desks and chairs. It's a curated network of digital nomads, entrepreneurs, and remote professionals building the future together."
       },
       {
-        "title": "Phase 1: Rapid Launch",
-        "description": "We're moving fast. Early members get founding rates and the chance to shape what Pattaya Space becomes. Join us at the ground floor."
+        "title": "Founding Member Benefits",
+        "description": "Early members get special introductory rates and the chance to shape what Pattaya Space becomes. Join us at the ground floor."
       }
     ]
   },
   "pricing": {
     "title": "Membership & Pricing",
-    "subtitle": "Phase 1 Launch Rates",
+    "subtitle": "Flexible plans for every work style",
     "tiers": [
       {
         "name": "Day Pass",
