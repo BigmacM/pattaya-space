@@ -1,168 +1,264 @@
 # Pattaya Space Brand System
 
-## Visual Identity
-**"Industrial Elegance meets Tropical Productivity"**
+## Brand Identity
 
-The brand embodies the unique transformation of a fine dining restaurant into a premium coworking space. It balances sophistication with accessibility, warmth with professionalism, and heritage with innovation.
+**Concept:** Dark Tropical Industrial
+**Tagline:** "Work Where Fine Dining Used to Be"
+**Mood:** Nocturnal, productive, exclusive, yet highly inviting
+
+We are transforming a former fine dining restaurant in Pattaya into a premium coworking space. The aesthetic bridges the gap between industrial workspace and tropical luxury—think late-night productivity sessions with warm ambient lighting, exposed textures, and modern tech vibes.
 
 ---
 
 ## Color Palette
 
 ### Primary Colors
-- **Deep Emerald Green** `#064E3B` - Primary backgrounds, footer, key sections
-  - Evokes sophistication, growth, and the tropical setting
-  - Use for headers, accents, and call-to-action elements
+| Name | Hex | Usage |
+|------|-----|-------|
+| Deep Turquoise | `#0F3D3E` | Primary brand color, headers, accents |
+| Charcoal | `#222831` | Main backgrounds, dark sections |
+| Gunmetal | `#393E46` | Secondary backgrounds, cards |
 
-### Secondary Colors
-- **Brass/Gold** `#B8860B` - Accent color for buttons, highlights, icons
-  - Nods to the premium fine dining heritage
-  - Creates warmth and draws attention
-  - Variations: Light `#E8C547`, Dark `#92702B`
+### Accent Colors
+| Name | Hex | Usage |
+|------|-----|-------|
+| Cyan | `#00ADB5` | CTAs, buttons, links, highlights |
+| Teal Glow | `#00FFF5` | Hover states, glows, active indicators |
 
 ### Neutral Colors
-- **Warm Walnut** `#2D221B` - Text on light backgrounds
-  - Rich, warm alternative to pure black
-  - Maintains the cozy restaurant vibe
+| Name | Hex | Usage |
+|------|-----|-------|
+| Silver | `#EEEEEE` | Primary text |
+| Muted | `#A0A0A0` | Secondary text, captions |
+| Dark Muted | `#6B7280` | Disabled states |
 
-- **Cream/Off-White** `#FDF8E7` - Primary backgrounds
-  - Soft, inviting alternative to stark white
-  - Reduces eye strain for all-day work
-  - Variations: `#FFFEF7` (lightest), `#F5E6BE` (warmest)
+### Semantic Colors
+| Name | Hex | Usage |
+|------|-----|-------|
+| Success | `#10B981` | Success states |
+| Warning | `#F59E0B` | Warnings |
+| Error | `#EF4444` | Errors |
 
 ---
 
 ## Typography
 
-### Headers: Playfair Display
-- **Style:** Elegant serif with high contrast
-- **Usage:** H1, H2, section titles, hero text
-- **Why:** Nods to the fine dining heritage, creates sophistication
-- **Weights:** 400 (Regular), 600 (SemiBold), 700 (Bold)
+### Font Families
 
-### Body: Inter
-- **Style:** Clean, highly readable sans-serif
-- **Usage:** Paragraphs, navigation, buttons, captions
-- **Why:** Modern, professional, optimized for screens
-- **Weights:** 400 (Regular), 500 (Medium), 600 (SemiBold)
+**Headlines (Editorial):**
+- Primary: `Cinzel` - Bold, high-contrast serif for large headlines
+- Fallback: `Playfair Display`, `Georgia`, serif
 
-### Hierarchy
+**Body & UI:**
+- Primary: `Inter` - Clean sans-serif for readability
+- Fallback: `system-ui`, sans-serif
+
+**Code & Technical:**
+- Primary: `JetBrains Mono` - Monospace for prices, technical details
+- Fallback: `Fira Code`, `monospace`
+
+### Type Scale
+| Element | Size | Weight | Font |
+|---------|------|--------|------|
+| Hero H1 | 5rem - 8rem | 700 | Cinzel |
+| Section H2 | 3rem - 4rem | 600 | Cinzel |
+| Card H3 | 1.5rem - 2rem | 600 | Inter |
+| Body Large | 1.25rem | 400 | Inter |
+| Body | 1rem | 400 | Inter |
+| Small/Caption | 0.875rem | 400 | JetBrains Mono |
+| Price | 2rem - 3rem | 700 | JetBrains Mono |
+
+---
+
+## Layout Systems
+
+### 1. Broken Grid (Hero & About)
+- Asymmetric layouts with overlapping elements
+- Images breaking out of containers
+- Angled text blocks
+- Negative space as design element
+- Creates uniqueness and visual interest
+
 ```
-H1: Playfair Display Bold, 48-72px
-H2: Playfair Display SemiBold, 36-48px
-H3: Playfair Display Medium, 24-32px
-Body: Inter Regular, 16-18px
-Caption: Inter Regular, 14px
-Button: Inter SemiBold, 16px (uppercase tracking)
+┌─────────────────────────────────────┐
+│     ┌──────────┐                    │
+│     │  IMAGE   │    HEADLINE        │
+│     │          │    ───────         │
+│     └──────────┘                    │
+│              ┌──────────────────┐   │
+│              │   DESCRIPTION    │   │
+│              └──────────────────┘   │
+│  ┌─────────┐                        │
+│  │  CTA    │                        │
+│  └─────────┘                        │
+└─────────────────────────────────────┘
+```
+
+### 2. Bento Grid (Pricing & Amenities)
+- Card-based modular grid
+- Varying card sizes (1x1, 2x1, 1x2, 2x2)
+- Consistent gaps and padding
+- Perfect for showcasing features/tiers
+
+```
+┌─────┬─────┬───────────┐
+│ 1x1 │ 1x1 │    2x1    │
+├─────┴─────┼───────────┤
+│    2x1    │    1x1    │
+├───────────┼─────┬─────┤
+│    1x1    │ 1x1 │ 1x1 │
+└───────────┴─────┴─────┘
 ```
 
 ---
 
-## Layout Rules
+## UI Components
 
-### NO Symmetrical Grids
-- Embrace organic, asymmetric layouts
-- Allow content to breathe with generous whitespace
-- Create visual interest through intentional imbalance
+### Glassmorphism Cards
+```css
+.glass-card {
+  background: rgba(57, 62, 70, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+```
 
-### Organic Shapes
-- Use SVG wave dividers between sections
-- Incorporate subtle curved elements
-- Avoid harsh corners—use 16-24px border radius
-
-### Overlapping Elements
-- Images and cards slightly overlap containers for depth
-- Create layers using z-index and negative margins
-- Hero images extend beyond their containers
-
-### Soft Shadows
-- Large, diffuse shadows (neomorphism-inspired)
-- Shadow color should be warm, not pure black
-- Cards: `0 10px 40px rgba(0, 0, 0, 0.15)`
-- Hover: `0 20px 60px rgba(0, 0, 0, 0.25)`
-
-### Glass Morphism (Navigation)
-- Navbar: `backdrop-blur: 12px`
-- Background: `rgba(253, 248, 231, 0.8)`
-- Subtle border: `rgba(255, 255, 255, 0.3)`
-
----
-
-## Interactive Elements
+### Glassmorphism Navbar
+```css
+.glass-nav {
+  background: rgba(34, 40, 49, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+```
 
 ### Buttons
-- Primary: Brass background `#B8860B`, cream text
-- Hover: Glow effect `box-shadow: 0 0 30px rgba(184, 134, 11, 0.4)`
-- Active: Slight scale down (0.98)
-- Transition: 300ms ease-out
 
-### Cards
-- Default: Soft shadow, slight rotation (-1° to 1°)
-- Hover: Scale 1.02, increased shadow, rotation normalize
-- Transition: 400ms cubic-bezier(0.4, 0, 0.2, 1)
+**Primary Button:**
+- Background: `#00ADB5`
+- Hover: `#00FFF5` with glow effect
+- Text: `#222831`
+- Border-radius: 8px
+
+**Secondary Button:**
+- Background: transparent
+- Border: 1px solid `#00ADB5`
+- Hover: Fill with `#00ADB5`
+- Text: `#00ADB5` → `#222831` on hover
+
+**Ghost Button:**
+- Background: transparent
+- Text: `#EEEEEE`
+- Hover: `rgba(255, 255, 255, 0.1)` background
+
+### Hover Effects
+- Scale: 1.02 - 1.05 for cards
+- Glow: `box-shadow: 0 0 30px rgba(0, 173, 181, 0.4)`
+- Border highlight: `border-color: #00ADB5`
+- Transition: `all 0.3s cubic-bezier(0.4, 0, 0.2, 1)`
+
+---
+
+## Animation Guidelines
 
 ### Scroll Animations
-- Elements fade in and float up on scroll
-- Stagger delays for grouped elements (100ms intervals)
-- Use `threshold: 0.2` for intersection observer
+- Fade up on enter: `translateY(30px)` → `translateY(0)`
+- Stagger children: 0.1s delay between items
+- Duration: 0.6s - 0.8s
+- Easing: `cubic-bezier(0.4, 0, 0.2, 1)`
 
-### Parallax Effects
-- Hero background: 0.5x scroll speed
-- Decorative elements: Variable speeds (0.3x - 0.7x)
-- Keep subtle—enhance, don't distract
+### Hover Animations
+- Duration: 0.3s
+- Scale: subtle (1.02 - 1.05)
+- Glow pulse for CTAs
 
----
-
-## Imagery Guidelines
-
-### Photography Style
-- Warm color temperature (slightly orange/golden)
-- Natural lighting with moody shadows
-- Focus on textures: wood grain, fabric, warm lighting
-- Show the space in use—people working, collaborating
-
-### Placeholder Imagery
-- High ceilings visible
-- Warm pendant/mood lighting
-- Comfortable seating arrangements
-- Plants and natural elements
-- Coffee cups, laptops, notebooks
-
-### Image Treatment
-- Slight desaturation for cohesive feel
-- Warm overlay in brand colors
-- Grain texture for editorial quality
+### Parallax
+- Background: 0.5x scroll speed
+- Foreground elements: 1.2x scroll speed
+- Keep subtle to avoid motion sickness
 
 ---
 
-## Mobile First Design
+## Spacing System
 
-### Responsive Breakpoints
-```
-Mobile: 0 - 639px
-Tablet: 640px - 1023px
-Desktop: 1024px+
-Large: 1280px+
-```
-
-### Mobile Specific
-- Larger touch targets (min 44px)
-- Simplified navigation (hamburger menu)
-- Stack cards vertically
-- Reduce parallax effects for performance
+| Name | Size | Usage |
+|------|------|-------|
+| xs | 4px | Tight spacing |
+| sm | 8px | Component internal |
+| md | 16px | Component gaps |
+| lg | 24px | Section internal |
+| xl | 32px | Section padding |
+| 2xl | 48px | Large gaps |
+| 3xl | 64px | Section spacing |
+| 4xl | 96px | Hero spacing |
 
 ---
 
-## Voice & Tone
+## Page Structure
 
-### Brand Voice
-- **Confident** but not arrogant
-- **Warm** but professional
-- **Unique** but accessible
-- **Premium** but not pretentious
+### Homepage
+1. Hero (Broken Grid) - Headline, subheadline, CTA, ambient image
+2. Quick Stats Bar - Key numbers (hours, members, amenities)
+3. Featured Pricing - 3 popular tiers (Bento preview)
+4. CTA Section - "Visit Us Today"
 
-### Copy Guidelines
-- Use "we" and "you" for connection
-- Short sentences for impact
-- Highlight the unique restaurant heritage
-- Emphasize community over transactions
+### About Page
+1. Story Section (Broken Grid) - The transformation story
+2. Vision Section - Phase 1 focus, future plans
+3. Community Section - Who works here
+
+### Pricing Page
+1. Hero - Simple headline
+2. Pricing Grid (Bento) - All 5 tiers with glassmorphism
+3. FAQ Section - Common questions
+
+### Amenities Page
+1. Hero - Simple headline
+2. Amenities Grid (Bento) - All amenities with icons
+3. Hours & Access - Operating hours
+
+### Contact Page
+1. Split Layout - Form on left, info on right
+2. Map Section - Full-width map embed
+
+---
+
+## Responsive Breakpoints
+
+| Name | Size | Columns |
+|------|------|---------|
+| Mobile | < 640px | 1 |
+| Tablet | 640px - 1024px | 2 |
+| Desktop | > 1024px | 3-4 |
+
+---
+
+## Accessibility Requirements
+
+- Contrast ratio: Minimum 4.5:1 for body text
+- Focus states: Visible outline with `#00ADB5`
+- Alt text: Required for all images
+- Reduced motion: Respect `prefers-reduced-motion`
+- Font size: Minimum 16px for body text
+
+---
+
+## Do's and Don'ts
+
+### Do's
+✓ Use deep, rich colors for backgrounds
+✓ Create depth with glassmorphism
+✓ Use monospace for technical/price information
+✓ Add subtle glow effects on interactive elements
+✓ Break the grid in hero sections
+✓ Keep text readable with proper contrast
+
+### Don'ts
+✗ Use pure white (#FFFFFF) - use off-white instead
+✗ Use pure black (#000000) - use charcoal instead
+✗ Overuse glow effects
+✗ Create symmetrical, boring layouts
+✗ Use generic stock photo aesthetics
+✗ Forget mobile responsiveness
