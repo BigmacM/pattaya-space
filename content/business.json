@@ -1,0 +1,182 @@
+{
+  "businessInfo": {
+    "name": "Pattaya Space",
+    "tagline": "Work Where Fine Dining Used to Be.",
+    "description": "Pattaya's most unique coworking experience in a converted fine dining restaurant. Industrial elegance meets tropical productivity. Open 8 AM - 2 AM daily.",
+    "phone": "+66 38 123 4567",
+    "email": "hello@pattayaspace.co",
+    "address": "123 Beach Road, Central Pattaya, Chonburi 20150, Thailand",
+    "googleMapsLink": "https://maps.google.com/?q=Pattaya+Beach+Road+Coworking",
+    "hours": [
+      { "days": "Monday - Sunday", "time": "8:00 AM - 2:00 AM" }
+    ],
+    "geo": {
+      "latitude": "12.9271",
+      "longitude": "100.8789"
+    },
+    "siteUrl": "https://pattayaspace.co",
+    "priceRange": "฿฿ - ฿฿฿"
+  },
+  "hero": {
+    "headline": "Work Where Fine Dining Used to Be.",
+    "subheadline": "Pattaya's most unique coworking experience. Open 8 AM - 2 AM daily.",
+    "ctaText": "Book Your Spot",
+    "ctaLink": "#contact"
+  },
+  "about": {
+    "phase": "Rapid Launch",
+    "title": "The Vibe",
+    "subtitle": "Where Industrial Elegance Meets Tropical Productivity",
+    "description": "We've transformed a legendary fine dining restaurant into Pattaya's most inspiring workspace. The high ceilings remain. The warm lighting stays. The unique layout persists. But now, it's optimized for deep work, collaboration, and building something extraordinary.",
+    "highlights": [
+      {
+        "title": "Unique Ambiance",
+        "description": "Former fine dining space with preserved character—warm mood lighting, distinct architectural details, and an atmosphere you won't find anywhere else."
+      },
+      {
+        "title": "Community Focus",
+        "description": "This isn't just desks and chairs. It's a curated network of digital nomads, entrepreneurs, and remote professionals building the future together."
+      },
+      {
+        "title": "Phase 1: Rapid Launch",
+        "description": "We're moving fast. Early members get founding rates and the chance to shape what Pattaya Space becomes. Join us at the ground floor."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Membership & Pricing",
+    "subtitle": "Phase 1 Launch Rates",
+    "tiers": [
+      {
+        "name": "Day Pass",
+        "price": "400",
+        "currency": "THB",
+        "period": "day",
+        "description": "Perfect for travelers",
+        "features": [
+          "Full day access (8 AM - 2 AM)",
+          "High-speed WiFi",
+          "Free coffee & water",
+          "Meeting room access (by the hour)"
+        ],
+        "highlighted": false
+      },
+      {
+        "name": "Hot Desk",
+        "price": "3,800",
+        "currency": "THB",
+        "period": "month",
+        "description": "Flexible seating in the main hall",
+        "features": [
+          "Unlimited monthly access",
+          "Any available desk",
+          "High-speed WiFi",
+          "Free coffee & water",
+          "2 hours meeting room/month",
+          "Community events access"
+        ],
+        "highlighted": true
+      },
+      {
+        "name": "Dedicated Desk",
+        "price": "5,000",
+        "currency": "THB",
+        "period": "month",
+        "description": "Your own reserved spot",
+        "features": [
+          "Personal dedicated desk",
+          "Lockable storage",
+          "24/7 access upgrade available",
+          "High-speed WiFi",
+          "Free coffee & water",
+          "4 hours meeting room/month",
+          "Mail handling"
+        ],
+        "highlighted": false
+      },
+      {
+        "name": "Virtual Office",
+        "price": "1,500",
+        "currency": "THB",
+        "period": "month",
+        "description": "Business address & mail",
+        "features": [
+          "Professional business address",
+          "Mail & package handling",
+          "2 day passes/month",
+          "Company registration support"
+        ],
+        "highlighted": false
+      },
+      {
+        "name": "Private Office",
+        "price": "15,000",
+        "currency": "THB",
+        "period": "month",
+        "description": "For teams of 2-4",
+        "features": [
+          "Private lockable office",
+          "24/7 access",
+          "Dedicated internet line",
+          "Premium furniture",
+          "8 hours meeting room/month",
+          "Custom branding options"
+        ],
+        "highlighted": false,
+        "startingAt": true
+      }
+    ]
+  },
+  "amenities": {
+    "title": "Why Pattaya Space?",
+    "subtitle": "Everything you need to do your best work",
+    "items": [
+      {
+        "icon": "wifi",
+        "title": "High-Speed Internet",
+        "description": "Fiber-optic connection with backup lines. Video calls without lag."
+      },
+      {
+        "icon": "clock",
+        "title": "Extended Hours",
+        "description": "Open 8 AM to 2 AM daily. Night owls and early birds welcome."
+      },
+      {
+        "icon": "users",
+        "title": "Meeting Rooms",
+        "description": "Professional spaces for calls and collaborations. 600 THB/hour."
+      },
+      {
+        "icon": "coffee",
+        "title": "Free Coffee & Water",
+        "description": "Locally roasted coffee and filtered water. Always available."
+      },
+      {
+        "icon": "chair",
+        "title": "Ergonomic Seating",
+        "description": "Premium chairs designed for all-day comfort and productivity."
+      },
+      {
+        "icon": "lightning",
+        "title": "Power Everywhere",
+        "description": "Every seat has accessible power outlets. Never hunt for a plug."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Join Pattaya Space",
+    "subtitle": "Located in the heart of Pattaya",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.8788!2d100.8789!3d12.9271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU1JzM3LjYiTiAxMDDCsDUyJzQ0LjAiRQ!5e0!3m2!1sen!2sth!4v1234567890",
+    "contactMessage": "Ready to experience Pattaya's most unique workspace? Fill out the form below and we'll get back to you within 24 hours."
+  },
+  "socials": {
+    "facebook": "https://facebook.com/pattayaspace",
+    "instagram": "https://instagram.com/pattayaspace",
+    "line": "https://line.me/pattayaspace"
+  },
+  "seo": {
+    "title": "Pattaya Space | Premium Coworking in a Former Fine Dining Restaurant",
+    "description": "Work where fine dining used to be. Pattaya's most unique coworking experience featuring high ceilings, warm ambiance, and a community of digital nomads. Open 8 AM - 2 AM daily.",
+    "keywords": ["coworking pattaya", "digital nomad thailand", "workspace pattaya", "hot desk pattaya", "remote work thailand", "coworking space"]
+  }
+}

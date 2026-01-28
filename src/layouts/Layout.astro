@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Pattaya's most unique coworking experience in a converted fine dining restaurant. Open 8 AM - 2 AM daily." } = Astro.props;
+
+// Load business data for SEO
+import businessData from '../../content/business.json';
+const { businessInfo, seo } = businessData;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={seo.keywords.join(', ')} />
+    <meta name="author" content={businessInfo.name} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={businessInfo.siteUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={businessInfo.siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={businessInfo.siteUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/og-image.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CoworkingSpace",
+      "name": businessInfo.name,
+      "description": businessInfo.description,
+      "url": businessInfo.siteUrl,
+      "telephone": businessInfo.phone,
+      "email": businessInfo.email,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Beach Road",
+        "addressLocality": "Pattaya",
+        "addressRegion": "Chonburi",
+        "postalCode": "20150",
+        "addressCountry": "TH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": businessInfo.geo.latitude,
+        "longitude": businessInfo.geo.longitude
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "08:00",
+        "closes": "02:00"
+      },
+      "priceRange": businessInfo.priceRange,
+      "sameAs": [
+        businessData.socials.facebook,
+        businessData.socials.instagram
+      ]
+    })} />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Grain texture overlay -->
+    <div class="grain-overlay"></div>
+
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

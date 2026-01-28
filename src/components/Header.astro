@@ -1,0 +1,140 @@
+---
+import businessData from '../../content/business.json';
+const { businessInfo } = businessData;
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+>
+  <nav class="container-custom">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-brass-500 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+          <span class="text-cream-50 font-serif font-bold text-xl">P</span>
+        </div>
+        <span class="font-serif text-xl font-semibold text-walnut-900 hidden sm:block">
+          {businessInfo.name}
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="nav-link">The Vibe</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#amenities" class="nav-link">Amenities</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn-primary text-sm py-3 px-6">
+          Book Your Spot
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 group"
+        aria-label="Toggle menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 top-20 bg-cream-50/95 backdrop-blur-lg transform translate-x-full transition-transform duration-300 ease-out"
+  >
+    <nav class="container-custom py-8">
+      <div class="flex flex-col gap-6">
+        <a href="#about" class="mobile-nav-link">The Vibe</a>
+        <a href="#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="#amenities" class="mobile-nav-link">Amenities</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="#contact" class="btn-primary text-center mt-4">
+          Book Your Spot
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    @apply font-sans text-walnut-700 hover:text-brass-500 transition-colors duration-300 relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brass-500 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .mobile-nav-link {
+    @apply font-serif text-3xl text-walnut-900 hover:text-brass-500 transition-colors duration-300;
+  }
+
+  .hamburger-line {
+    @apply w-6 h-0.5 bg-walnut-800 transition-all duration-300 origin-center;
+  }
+
+  .menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-open .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  header.scrolled {
+    @apply bg-cream-100/80 backdrop-blur-md shadow-soft;
+  }
+</style>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header');
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('menu-open');
+    mobileMenu?.classList.toggle('translate-x-full');
+    mobileMenu?.classList.toggle('translate-x-0');
+    document.body.classList.toggle('overflow-hidden');
+  });
+
+  // Close mobile menu on link click
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuBtn?.classList.remove('menu-open');
+      mobileMenu?.classList.add('translate-x-full');
+      mobileMenu?.classList.remove('translate-x-0');
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
+</script>
