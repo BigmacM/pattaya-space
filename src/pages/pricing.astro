@@ -33,12 +33,12 @@ const { pricing } = businessData;
           <div
             class:list={[
               "glass-card p-8 relative group transition-all duration-300 hover:scale-[1.02]",
-              tier.isPopular ? "border-cyan/50 lg:scale-105 lg:hover:scale-[1.07]" : "",
+              tier.highlighted ? "border-cyan/50 lg:scale-105 lg:hover:scale-[1.07]" : "",
               index === 4 ? "md:col-span-2 lg:col-span-1" : ""
             ]}
           >
             {/* Popular badge */}
-            {tier.isPopular && (
+            {tier.highlighted && (
               <div class="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span class="bg-cyan text-charcoal font-mono text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
                   Most Popular
@@ -111,7 +111,7 @@ const { pricing } = businessData;
               href="/contact"
               class:list={[
                 "w-full inline-flex items-center justify-center py-3 rounded-lg font-sans font-semibold transition-all duration-300",
-                tier.isPopular
+                tier.highlighted
                   ? "bg-cyan text-charcoal hover:bg-cyan-400 hover:shadow-glow"
                   : "bg-gunmetal text-silver hover:bg-gunmetal-400 border border-white/10"
               ]}

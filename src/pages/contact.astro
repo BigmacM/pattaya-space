@@ -210,7 +210,7 @@ const { businessInfo, contact } = businessData;
   </section>
 </Layout>
 
-<script>
+<script is:inline>
   const form = document.getElementById('contact-form');
   const successMessage = document.getElementById('success-message');
 
@@ -226,7 +226,7 @@ const { businessInfo, contact } = businessData;
         </svg>
         Sending...
       `;
-      submitBtn.disabled = true;
+      submitBtn.setAttribute('disabled', 'true');
     }
 
     // Simulate form submission

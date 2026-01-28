@@ -6,7 +6,7 @@ interface PricingTier {
   period: string;
   description: string;
   features: string[];
-  isPopular?: boolean;
+  highlighted?: boolean;
 }
 
 interface FeaturedPricingProps {
@@ -63,11 +63,11 @@ export default function FeaturedPricing({ title, subtitle, tiers }: FeaturedPric
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`
                 glass-card p-8 relative group
-                ${tier.isPopular ? 'border-cyan/50 md:scale-105' : ''}
+                ${tier.highlighted ? 'border-cyan/50 md:scale-105' : ''}
               `}
             >
               {/* Popular badge */}
-              {tier.isPopular && (
+              {tier.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="bg-cyan text-charcoal font-mono text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
                     Most Popular
@@ -120,7 +120,7 @@ export default function FeaturedPricing({ title, subtitle, tiers }: FeaturedPric
                 href="/contact"
                 className={`
                   w-full inline-flex items-center justify-center py-3 rounded-lg font-sans font-semibold transition-all duration-300
-                  ${tier.isPopular
+                  ${tier.highlighted
                     ? 'bg-cyan text-charcoal hover:bg-cyan-400 hover:shadow-glow'
                     : 'bg-gunmetal text-silver hover:bg-gunmetal-400 border border-white/10'
                   }
