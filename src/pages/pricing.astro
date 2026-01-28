@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import businessData from '../../content/business.json';
+
+const { pricing } = businessData;
+---
+
+<Layout
+  title="Pricing & Memberships | Pattaya Space"
+  description="Flexible coworking memberships starting at ฿400/day. Hot desks, dedicated desks, private offices & virtual office options in Pattaya."
+>
+  <!-- Hero Section -->
+  <section class="page-hero pt-32 pb-20">
+    <div class="page-hero-content">
+      <span class="font-mono text-sm text-cyan uppercase tracking-wider mb-4 block">// MEMBERSHIPS</span>
+      <h1 class="heading-xl text-silver mb-6">{pricing.title}</h1>
+      <p class="body-lg max-w-2xl mx-auto">{pricing.subtitle}</p>
+    </div>
+
+    <!-- Ambient glow -->
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-3xl"></div>
+  </section>
+
+  <!-- Pricing Grid - Bento Layout -->
+  <section class="section-padding bg-charcoal relative overflow-hidden">
+    <!-- Background glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan/5 rounded-full blur-3xl"></div>
+
+    <div class="container-custom relative">
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pricing.tiers.map((tier, index) => (
+          <div
+            class:list={[
+              "glass-card p-8 relative group transition-all duration-300 hover:scale-[1.02]",
+              tier.isPopular ? "border-cyan/50 lg:scale-105 lg:hover:scale-[1.07]" : "",
+              index === 4 ? "md:col-span-2 lg:col-span-1" : ""
+            ]}
+          >
+            {/* Popular badge */}
+            {tier.isPopular && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="bg-cyan text-charcoal font-mono text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                  Most Popular
+                </span>
+              </div>
+            )}
+
+            {/* Tier icon */}
+            <div class="w-14 h-14 bg-cyan/20 rounded-2xl flex items-center justify-center mb-6">
+              {tier.name === "Day Pass" && (
+                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+              {tier.name === "Hot Desk" && (
+                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              )}
+              {tier.name === "Dedicated Desk" && (
+                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              )}
+              {tier.name === "Virtual Office" && (
+                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              )}
+              {tier.name === "Private Office" && (
+                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              )}
+            </div>
+
+            {/* Tier name */}
+            <h3 class="font-sans text-xl font-semibold text-silver mb-2">
+              {tier.name}
+            </h3>
+
+            {/* Price */}
+            <div class="mb-4">
+              <span class="font-mono text-4xl font-bold text-cyan">฿{tier.price}</span>
+              <span class="text-silver-400 font-sans">/{tier.period}</span>
+            </div>
+
+            {/* Description */}
+            <p class="text-silver-300 font-sans text-sm mb-6 min-h-[40px]">
+              {tier.description}
+            </p>
+
+            {/* Divider */}
+            <div class="h-px bg-white/10 mb-6"></div>
+
+            {/* Features */}
+            <ul class="space-y-3 mb-8">
+              {tier.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-silver-200 font-sans text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA */}
+            <a
+              href="/contact"
+              class:list={[
+                "w-full inline-flex items-center justify-center py-3 rounded-lg font-sans font-semibold transition-all duration-300",
+                tier.isPopular
+                  ? "bg-cyan text-charcoal hover:bg-cyan-400 hover:shadow-glow"
+                  : "bg-gunmetal text-silver hover:bg-gunmetal-400 border border-white/10"
+              ]}
+            >
+              Get Started
+            </a>
+
+            {/* Hover glow effect */}
+            <div class="absolute inset-0 rounded-2xl bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+        ))}
+      </div>
+
+      {/* Additional info */}
+      <div class="mt-16 text-center">
+        <p class="font-mono text-sm text-silver-400 mb-4">// PHASE 1 PRICING</p>
+        <p class="text-silver-300 font-sans max-w-2xl mx-auto">
+          All memberships include access to common areas, high-speed WiFi, and complimentary coffee & water.
+          Prices are introductory rates for our launch phase.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-padding bg-charcoal-900 relative">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan/30 to-transparent"></div>
+
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="font-mono text-sm text-cyan uppercase tracking-wider mb-4 block">// FAQ</span>
+          <h2 class="heading-md text-silver">Common Questions</h2>
+        </div>
+
+        <div class="space-y-4">
+          <details class="glass-card p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <span class="font-sans font-semibold text-silver">Can I try before committing?</span>
+              <svg class="w-5 h-5 text-cyan transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-silver-300 font-sans text-sm">
+              Absolutely! Our Day Pass is perfect for trying out the space. No commitment required—just show up and work.
+            </p>
+          </details>
+
+          <details class="glass-card p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <span class="font-sans font-semibold text-silver">What's included in all memberships?</span>
+              <svg class="w-5 h-5 text-cyan transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-silver-300 font-sans text-sm">
+              All memberships include high-speed WiFi (100+ Mbps), complimentary coffee & water, access to common areas,
+              air conditioning, and use of our comfortable seating areas.
+            </p>
+          </details>
+
+          <details class="glass-card p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <span class="font-sans font-semibold text-silver">Can I upgrade my membership?</span>
+              <svg class="w-5 h-5 text-cyan transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-silver-300 font-sans text-sm">
+              Yes! You can upgrade at any time. We'll prorate the difference for your current billing period.
+            </p>
+          </details>
+
+          <details class="glass-card p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <span class="font-sans font-semibold text-silver">Do you offer corporate packages?</span>
+              <svg class="w-5 h-5 text-cyan transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-silver-300 font-sans text-sm">
+              Yes, we offer custom packages for teams and companies. Contact us to discuss your needs.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

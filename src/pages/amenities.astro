@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import businessData from '../../content/business.json';
+
+const { amenities, businessInfo } = businessData;
+
+// Extended amenities with icons
+const amenityIcons: Record<string, string> = {
+  "High-Speed WiFi": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />`,
+  "Extended Hours": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  "Meeting Rooms": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />`,
+  "Free Coffee & Water": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+  "Ergonomic Seating": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />`,
+  "Air Conditioning": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />`
+};
+
+const defaultIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />`;
+---
+
+<Layout
+  title="Amenities | Pattaya Space"
+  description="Discover all the amenities at Pattaya Space: high-speed internet, meeting rooms, free coffee, ergonomic seating, and more."
+>
+  <!-- Hero Section -->
+  <section class="page-hero pt-32 pb-20">
+    <div class="page-hero-content">
+      <span class="font-mono text-sm text-cyan uppercase tracking-wider mb-4 block">// AMENITIES</span>
+      <h1 class="heading-xl text-silver mb-6">{amenities.title}</h1>
+      <p class="body-lg max-w-2xl mx-auto">{amenities.subtitle}</p>
+    </div>
+
+    <!-- Ambient glow -->
+    <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-3xl"></div>
+  </section>
+
+  <!-- Amenities Grid - Bento Layout -->
+  <section class="section-padding bg-charcoal relative overflow-hidden">
+    <!-- Background glow -->
+    <div class="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-turquoise/5 rounded-full blur-3xl"></div>
+
+    <div class="container-custom relative">
+      <!-- Bento Grid with varying sizes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {amenities.items.map((item, index) => (
+          <div
+            class:list={[
+              "glass-card p-8 relative group transition-all duration-300 hover:scale-[1.02] hover:border-cyan/30",
+              index === 0 ? "md:col-span-2 lg:col-span-2" : "",
+              index === 2 ? "lg:row-span-2" : ""
+            ]}
+          >
+            {/* Icon */}
+            <div class="w-16 h-16 bg-cyan/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan/30 transition-colors">
+              <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={amenityIcons[item.name] || defaultIcon} />
+            </div>
+
+            {/* Title */}
+            <h3 class="font-sans text-xl font-semibold text-silver mb-3">
+              {item.name}
+            </h3>
+
+            {/* Description */}
+            <p class="text-silver-300 font-sans text-sm leading-relaxed">
+              {item.description}
+            </p>
+
+            {/* Price if applicable */}
+            {item.price && (
+              <div class="mt-4 pt-4 border-t border-white/10">
+                <span class="font-mono text-cyan text-lg font-semibold">{item.price}</span>
+              </div>
+            )}
+
+            {/* Hover glow */}
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Hours & Access Section -->
+  <section class="section-padding bg-charcoal-900 relative">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan/30 to-transparent"></div>
+
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Hours info -->
+        <div>
+          <span class="font-mono text-sm text-cyan uppercase tracking-wider mb-4 block">// HOURS & ACCESS</span>
+          <h2 class="heading-md text-silver mb-6">
+            Extended Hours for <span class="text-gradient">Night Owls</span>
+          </h2>
+          <p class="body-lg mb-8">
+            We understand that productivity doesn't follow a 9-to-5 schedule.
+            That's why we're open from 8 AM to 2 AM, every single day.
+          </p>
+
+          <div class="space-y-4">
+            {businessInfo.hours.map((schedule) => (
+              <div class="glass-card p-4 flex items-center justify-between">
+                <span class="font-sans text-silver">{schedule.days}</span>
+                <span class="font-mono text-cyan">{schedule.time}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Access features -->
+        <div class="space-y-6">
+          <div class="glass-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-cyan/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-sans font-semibold text-silver mb-1">Easy Check-in</h3>
+                <p class="text-silver-300 text-sm font-sans">
+                  Simple digital check-in process. Just show up and get to work.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-cyan/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-sans font-semibold text-silver mb-1">Secure Environment</h3>
+                <p class="text-silver-300 text-sm font-sans">
+                  Staff presence during all operating hours. Your belongings are safe.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-cyan/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-sans font-semibold text-silver mb-1">Flexible Booking</h3>
+                <p class="text-silver-300 text-sm font-sans">
+                  Book meeting rooms by the hour. Reserve your spot in advance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-turquoise via-turquoise-800 to-charcoal relative">
+    <div class="container-custom text-center">
+      <h2 class="heading-md text-silver mb-6">Experience It Yourself</h2>
+      <p class="body-lg max-w-xl mx-auto mb-8">
+        The best way to appreciate our space is to visit. Book a tour or grab a day pass.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="btn-primary">
+          Book a Tour
+        </a>
+        <a href="/pricing" class="btn-secondary">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

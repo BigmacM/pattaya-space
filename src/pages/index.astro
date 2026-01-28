@@ -1,30 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import WaveDivider from '../components/WaveDivider.astro';
 
 // Import React components
 import Hero from '../components/sections/Hero';
-import About from '../components/sections/About';
-import Pricing from '../components/sections/Pricing';
-import Amenities from '../components/sections/Amenities';
-import Contact from '../components/sections/Contact';
+import FeaturedPricing from '../components/sections/FeaturedPricing';
+import StatsBar from '../components/sections/StatsBar';
+import CTASection from '../components/sections/CTASection';
 
 // Load business data
 import businessData from '../../content/business.json';
 
-const {
-  businessInfo,
-  hero,
-  about,
-  pricing,
-  amenities,
-  contact,
-  seo,
-} = businessData;
+const { businessInfo, hero, pricing, seo } = businessData;
+
+// Get featured tiers (first 3)
+const featuredTiers = pricing.tiers.slice(0, 3);
 ---
 
 <Layout title={seo.title} description={seo.description}>
-  <!-- Hero Section -->
+  <!-- Hero Section with Broken Grid -->
   <Hero
     client:load
     headline={hero.headline}
@@ -33,50 +26,17 @@ const {
     ctaLink={hero.ctaLink}
   />
 
-  <!-- About Section -->
-  <About
+  <!-- Stats Bar -->
+  <StatsBar client:visible />
+
+  <!-- Featured Pricing Preview -->
+  <FeaturedPricing
     client:visible
-    phase={about.phase}
-    title={about.title}
-    subtitle={about.subtitle}
-    description={about.description}
-    highlights={about.highlights}
+    title="Flexible Memberships"
+    subtitle="Choose the plan that fits your workflow"
+    tiers={featuredTiers}
   />
 
-  <!-- Wave divider -->
-  <WaveDivider fillColor="#FAF0D4" bgColor="#FDF8E7" variant="curve" />
-
-  <!-- Pricing Section -->
-  <Pricing
-    client:visible
-    title={pricing.title}
-    subtitle={pricing.subtitle}
-    tiers={pricing.tiers}
-  />
-
-  <!-- Amenities Section -->
-  <Amenities
-    client:visible
-    title={amenities.title}
-    subtitle={amenities.subtitle}
-    items={amenities.items}
-  />
-
-  <!-- Wave divider back to light -->
-  <WaveDivider fillColor="#FDF8E7" bgColor="#064E3B" variant="wave" flip />
-
-  <!-- Contact Section -->
-  <Contact
-    client:visible
-    title={contact.title}
-    subtitle={contact.subtitle}
-    contactMessage={contact.contactMessage}
-    businessInfo={{
-      phone: businessInfo.phone,
-      email: businessInfo.email,
-      address: businessInfo.address,
-      googleMapsLink: businessInfo.googleMapsLink,
-    }}
-    mapEmbedUrl={contact.mapEmbedUrl}
-  />
+  <!-- CTA Section -->
+  <CTASection client:visible />
 </Layout>

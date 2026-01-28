@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import businessData from '../../content/business.json';
+
+const { businessInfo, about } = businessData;
+---
+
+<Layout
+  title="About | Pattaya Space"
+  description="Discover the story behind Pattaya's most unique coworking space - a transformed fine dining restaurant now serving productivity."
+>
+  <!-- Hero Section -->
+  <section class="page-hero pt-32 pb-20">
+    <div class="page-hero-content">
+      <span class="font-mono text-sm text-cyan uppercase tracking-wider mb-4 block">// OUR STORY</span>
+      <h1 class="heading-xl text-silver mb-6">The <span class="text-gradient">Vibe</span></h1>
+      <p class="body-lg max-w-2xl mx-auto">
+        Where fine dining elegance meets modern productivity in the heart of Pattaya.
+      </p>
+    </div>
+
+    <!-- Ambient glow -->
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/3 w-64 h-64 bg-turquoise/10 rounded-full blur-3xl"></div>
+  </section>
+
+  <!-- Story Section - Broken Grid -->
+  <section class="section-padding bg-charcoal relative overflow-hidden">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text content -->
+        <div class="lg:col-span-6 lg:col-start-1">
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-cyan/10 border border-cyan/20 rounded-full mb-6">
+            <span class="w-2 h-2 bg-cyan rounded-full"></span>
+            <span class="font-mono text-xs text-cyan uppercase tracking-wider">{about.phase}</span>
+          </span>
+
+          <h2 class="heading-md text-silver mb-6">{about.title}</h2>
+
+          <p class="body-lg mb-8">{about.description}</p>
+
+          <div class="space-y-4">
+            {about.highlights.map((highlight) => (
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-cyan/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-sans font-semibold text-silver mb-1">{highlight.title}</h3>
+                  <p class="text-silver-300 font-sans text-sm">{highlight.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Image placeholder - offset for broken grid -->
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="relative">
+            <div class="glass-card aspect-[4/5] flex items-center justify-center">
+              <div class="text-center p-8">
+                <div class="w-24 h-24 bg-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-12 h-12 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <p class="font-mono text-sm text-silver-300">Interior Photography</p>
+                <p class="font-sans text-xs text-silver-400 mt-1">High ceilings, warm lighting</p>
+              </div>
+            </div>
+            <!-- Decorative offset element -->
+            <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-cyan/20 rounded-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section class="section-padding bg-charcoal-900 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan/30 to-transparent"></div>
+
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="font-mono text-sm text-cyan uppercase tracking-wider mb-4 block">// THE VISION</span>
+        <h2 class="heading-md text-silver mb-8">
+          More Than Just a <span class="text-gradient">Workspace</span>
+        </h2>
+
+        <p class="body-lg mb-12">
+          We believe that where you work matters. The space around you influences your creativity,
+          focus, and overall wellbeing. That's why we've preserved the soul of this beautiful
+          restaurant while optimizing it for the modern remote worker.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-card p-6 text-center">
+            <div class="w-16 h-16 bg-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="font-sans font-semibold text-silver mb-2">Ambiance</h3>
+            <p class="text-silver-300 text-sm font-sans">Warm mood lighting and high ceilings create the perfect atmosphere for deep work.</p>
+          </div>
+
+          <div class="glass-card p-6 text-center">
+            <div class="w-16 h-16 bg-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="font-sans font-semibold text-silver mb-2">Community</h3>
+            <p class="text-silver-300 text-sm font-sans">Connect with fellow entrepreneurs, digital nomads, and remote workers.</p>
+          </div>
+
+          <div class="glass-card p-6 text-center">
+            <div class="w-16 h-16 bg-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="font-sans font-semibold text-silver mb-2">Productivity</h3>
+            <p class="text-silver-300 text-sm font-sans">Extended hours, reliable internet, and ergonomic seating for maximum output.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-turquoise via-turquoise-800 to-charcoal relative">
+    <div class="container-custom text-center">
+      <h2 class="heading-md text-silver mb-6">Ready to Experience It?</h2>
+      <p class="body-lg max-w-xl mx-auto mb-8">
+        Book a tour and see the space for yourself. We'd love to show you around.
+      </p>
+      <a href="/contact" class="btn-primary">
+        Book a Tour
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>
